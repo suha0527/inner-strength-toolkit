@@ -1,6 +1,7 @@
-import { Heart, ChevronDown } from "lucide-react";
+import { Heart, ChevronDown, BookHeart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   const scrollToTools = () => {
@@ -13,6 +14,21 @@ const HeroSection = () => {
       <div className="absolute top-20 left-10 w-64 h-64 rounded-full bg-peach opacity-40 blur-3xl" />
       <div className="absolute bottom-20 right-10 w-80 h-80 rounded-full bg-sage-light opacity-30 blur-3xl" />
       
+      {/* Journal link */}
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2, duration: 0.6 }}
+        className="absolute top-6 right-6"
+      >
+        <Link to="/auth">
+          <Button variant="outline" size="sm" className="rounded-full border-primary/30 hover:bg-accent">
+            <BookHeart className="w-4 h-4 mr-2" />
+            My Journal
+          </Button>
+        </Link>
+      </motion.div>
+
       <motion.div 
         className="relative z-10 text-center max-w-2xl mx-auto"
         initial={{ opacity: 0, y: 20 }}
